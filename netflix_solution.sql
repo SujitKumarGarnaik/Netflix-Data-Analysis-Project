@@ -153,8 +153,31 @@ ORDER BY content_count DESC
 OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
 
 --18.Find the top 10 longest movies based on their duration.
-select title,duration
+select title as Movie_name,duration
 from netflix
 where type='Movie'
 order by cast(left(duration,charindex(' ',duration)-1)as int)desc
 offset 0 rows fetch next 10 rows only;
+
+--19.Identify the most recently added content to Netflix based on the date_added column.
+select top 1 *
+from netflix
+order by date_added desc;
+
+--20.Count how many movies or TV shows each director has contributed to.
+select director,count(*)as Content_Count
+from netflix
+where director is not null
+group by director
+order by Content_Count desc;
+
+--21 Analyze the description field to find the most frequently occurring keywords for top 5 keywords
+WITH KeywordCount AS (
+    SELECT value AS keyword
+    FROM netflix
+    CROSS APPLY STRING_SPLIT(description, ' ')
+)
+SELECT TOP 5 keyword, COUNT(*) AS frequency
+FROM KeywordCount
+GROUP BY keyword
+ORDER BY frequency DESC;
