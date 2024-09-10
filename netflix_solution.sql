@@ -1,7 +1,7 @@
 CREATE DATABASE NETFLIX;
 use NETFLIX;
 
----15 Bussiness Problem
+---21 Bussiness Problem
 --1.Count the number of Movies vs TV Shows
 SELECT 
   type,
