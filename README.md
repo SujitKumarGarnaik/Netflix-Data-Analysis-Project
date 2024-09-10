@@ -11,3 +11,6 @@ Business Insights: Provided insights on user preferences based on show categorie
 Tools and Technologies:-
 SQL: Microsoft SQL Server
 Data Source: Netflix Movies and TV Shows dataset
+
+Dataset:
+The dataset used for this analysis was sourced from Kaggle. It contains detailed information about Netflix movies and TV shows, including titles, genres, release years, and cast.
